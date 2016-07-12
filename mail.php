@@ -10,7 +10,7 @@ $mensaje = '
   <title>Matchpad</title>
 </head>
 <body>
-    <p>Nombre: ' . $_POST["name"] . '</p>
+    <p>Name: ' . $_POST["name"] . '</p>
     <p>Email: ' . $_POST["email"] . '</p>
                                   
 </body>
