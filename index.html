@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MATCHPAD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <style>
+            body{
+                background-image: url("background-image.jpg");
+                background-size: 100%;
+                background-position: center top;
+            }
+            @media (max-width: 1536px) {
+                body {
+                    background-size: 1536px 1024px; /* Force the image to its minimum width */
+                }
+            }
+            img{
+                max-width: 80%;
+                margin-top: 7vw;
+                margin-bottom: 3vw;
+            }
+            input[type="text"], input[type="email"]{
+                width: 80%;
+                font-size: 22px;
+                padding-left: 16px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                padding-right: 16px;
+                border-radius: 7px;
+                border: none;
+                margin:0.5vw;
+            }
+            input[type="submit"]{
+                background-color: #009FE3;
+                border: none;
+                font-size: 18px;
+                color: white;
+                padding-left: 29px;
+                padding-right: 29px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin: 0.5vw;
+                float: right;
+                border-radius: 8px;
+                margin-right: 10%;
+            }
+            p{
+                font-size: 23px;
+                line-height: 26px;
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <img src="logo-matchpad.png">
+                </div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div id="signup_page">
+                        <p style="margin-bottom: 3vw">Thanks so much for your interest and support for MatchPad! We’re working behind the scenes on a new product that will take this concept to the next level. All we ask is that you sign up and sit tight. We’ll be sending updates and invites shortly. Can’t wait until you see what we’ve got in store for you next!</p>
+                        <form id='signup' action="javascript:submit()">
+                            <input type="text" name="name" id="name" placeholder="Name" required=""/>
+                            <br/>
+                            <input type="email" name="email" id="email" placeholder="Email" required=""/>
+                            <br/>
+                            <input type="hidden" name="list" value="rzylV892EWqUf7kcXe68L0Iw"/>
+                            <input type="submit" name="submit" id="submit" value="Sign Up"/>
+                        </form>
+                    </div>
+                    <div id="callback_page" style='display:none'>
+                        <p style="margin-bottom: 3vw">Thanks For Signing Up!!<br>We're gonna talk to you soon. :)</p>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            var url = "http://matchpad.com/sendy/subscribe";
+            function submit(){
+                $.post(url, $('#signup').serialize(),
+                        function (data) {
+                            $("#signup_page").hide();
+                            $("#callback_page").show();
+                        }
+                );
+            }
+        </script>
+    </body>
+</html>
